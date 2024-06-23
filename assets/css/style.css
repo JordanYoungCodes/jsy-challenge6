@@ -1,0 +1,49 @@
+.navbar1 {
+    text-align: center;
+    color: rgb(238, 241, 7);
+    margin-left:0;
+    background-color: blue;
+    height:4em;
+}
+ 
+.button-text {
+    color: rgb(36, 1, 1);
+    font-size: large;
+    font-weight: 500;
+
+}
+
+.flex {
+    display: flex;
+    flex-direction: row;
+    width:100%;
+    padding-top: 25px;
+    justify-content:space-evenly ;
+}
+.card {
+    width:19%;
+    border: black 2px solid;
+    height:25em
+    
+
+}
+#input {
+    margin-left: 20px;
+}
+.containerSubmit {
+    margin-left: 20px;
+    display:flex;
+    justify-content: space-between
+}
+
+.containerItem2 {
+    width:60%;
+    border: 2px black solid;
+    margin-right: 20px;
+    margin-top: 10px;
+}
+
+#citylabel {
+    text-align: center;
+    margin:auto, 0;
+}
