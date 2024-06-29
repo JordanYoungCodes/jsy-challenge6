@@ -4,11 +4,12 @@
     margin-left:0;
     background-color: blue;
     height:4em;
+    background-image: linear-gradient(to right, rgb(255, 94, 0) , rgb(193, 189, 248), rgb(0, 255, 255));
 }
  
 .button-text {
     color: rgb(36, 1, 1);
-    font-size: large;
+    font-size: 24px;
     font-weight: 500;
 
 }
@@ -23,7 +24,11 @@
 .card {
     width:19%;
     border: black 2px solid;
-    height:25em
+    height:25em;
+    background-image: linear-gradient(225deg,white, cyan, blue);
+    font-size: 15px;
+    font-weight: 600;
+    
     
 
 }
@@ -41,12 +46,27 @@
     border: 2px black solid;
     margin-right: 20px;
     margin-top: 10px;
+    background-image: linear-gradient(to right, rgb(248, 248, 164), rgb(108, 247, 247), rgb(1, 1, 63));
+    font-size:  22px;
+    font-weight: 800;
+    text-align: center;
+    padding-top: 10px;
+    border-radius: 12px;
 }
 
 #citylabel {
     text-align: center;
-    margin:auto, 0;
+    margin-top: 15px;
+    
 }
 #input {
-    border:rgb(104, 103, 103) 3px solid
+    border:rgb(104, 103, 103) 3px solid;
+    width:80%
+}
+
+.card li {
+    list-style-type: none;
+    font-size: 18px;
+    margin: 6px
+
 }
