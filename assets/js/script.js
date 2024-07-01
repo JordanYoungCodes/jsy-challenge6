@@ -48,21 +48,22 @@ function weather2(lat, lon) {
                     const temp1 = document.createElement("li")
                     const wind1 = document.createElement("li")
                     const humd1 = document.createElement("li")
-                    // const icon1 = document.createElement("li")
+                    const icon1 = document.createElement("li")
                     weatherCard[step].appendChild(date1)
-                    // weatherCard[step].appendChild(icon1)
+                    weatherCard[step].appendChild(icon1)
                     weatherCard[step].appendChild(temp1)
                     weatherCard[step].appendChild(wind1)
                     weatherCard[step].appendChild(humd1)
-                    // icon1.textcontent= data.list[i].weather.description
+                    
                     date1.textContent = data.list[i].dt_txt
                     temp1.textContent = "Temp:  " + ((data.list[i].main.temp - 273) * (9 / 5) + 32).toFixed(2) + " Farenheight"
                     wind1.textContent = "wind speed:  " + data.list[i].wind.speed + "  MPH"
                     humd1.textContent = "humidity:  " + data.list[i].main.humidity
-                        step += 1;
+                    icon1.textContent = data.list[i].weather[0].description
+                        step += 1;console.log(data.list[i].weather[0].description)
                 }
 
-                console.log(data.list)
+                
             }
 
         })
@@ -99,16 +100,3 @@ document.querySelector(".city").addEventListener("click", function () {
     localStorage.setItem("lsCityArray", JSON.stringify(cityArray))
 })
 
-// const weatherObj = {
-//     date: " ",
-//     temp: " ",
-//     wind: " ",
-//     himidity: " ",
-//     icon: " ",
-// }
-// // weatherObj.temp = data.main.temp
-
-// function ktoc(){
-//     let k = data.main.temp
-//     const fa = (k - 273) * (9 / 5) -32
-// }
