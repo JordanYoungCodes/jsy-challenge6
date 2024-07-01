@@ -20,10 +20,10 @@ function weather(lat, lon) {
             console.log(data)
             // const directionB = windDirection().value
             document.querySelector("#citylabel").textContent = data.name
-            let date1 = new Date(data.dt)
-            let date2 = date1.toLocaleDateString()
+
+            let date2 = dayjs.unix(data.dt).format("DD/MM/YYYY")
             document.querySelector("#TDdate").textContent = date2
-            
+
             document.querySelector("#tdicon").textContent = data.weather[0].description
             document.querySelector("#tdtemp").textContent = "Temp:  " + ((data.main.temp - 273) * (9 / 5) + 32).toFixed(2) + " Farenheight"
             document.querySelector("#tdwind").textContent = "wind speed:  " + data.wind.speed + "  MPH" + " " + windDirection(data.wind.deg)
@@ -37,26 +37,33 @@ function weather2(lat, lon) {
         .then(response => response.json())
         .then(data => {
             const weatherCard = document.querySelectorAll(".weatherCard")
-          const conditionsArray = [4, 12, 20, 28]
+            // const conditionsArray = [4, 12, 20, 28]
+            let step = 0
+            for (let i = 0; i < data.list.length; i++) {
+                if (i === 4 || i === 12 || i === 20 || i === 28) {
+                       if(weatherCard[step].textContent) {
+                        weatherCard[step].textContent = " "
+                       }
+                    const date1 = document.createElement("li")
+                    const temp1 = document.createElement("li")
+                    const wind1 = document.createElement("li")
+                    const humd1 = document.createElement("li")
+                    const icon1 = document.createElement("li")
+                    weatherCard[step].appendChild(date1)
+                    weatherCard[step].appendChild(icon1)
+                    weatherCard[step].appendChild(temp1)
+                    weatherCard[step].appendChild(wind1)
+                    weatherCard[step].appendChild(humd1)
+                    
+                    date1.textContent = data.list[i].dt_txt
+                    temp1.textContent = "Temp:  " + ((data.list[i].main.temp - 273) * (9 / 5) + 32).toFixed(2) + " Farenheight"
+                    wind1.textContent = "wind speed:  " + data.list[i].wind.speed + "  MPH"
+                    humd1.textContent = "humidity:  " + data.list[i].main.humidity
+                    icon1.textContent = data.list[i].weather[0].description
+                        step += 1;console.log(data.list[i].weather[0].description)
+                }
 
-            for (let i = 0; i < conditionsArray.length; i++) {
-                weatherCard[i].textContent = " "
-                const date1 = document.createElement("li")
-                const temp1 = document.createElement("li")
-                const wind1 = document.createElement("li")
-                const humd1 = document.createElement("li")
-                // const icon1 = document.createElement("li")
-                weatherCard[i].appendChild(date1)
-                // weatherCard[i].appendChild(icon1)
-                weatherCard[i].appendChild(temp1)             
-                weatherCard[i].appendChild(wind1)
-                weatherCard[i].appendChild(humd1)
-                // icon1.textcontent= data.list[i].weather.description
-                date1.textContent = data.list[i].dt_txt
-                temp1.textContent = "Temp:  " + ((data.list[i].main.temp - 273) * (9 / 5) + 32).toFixed(2) + " Farenheight"
-                wind1.textContent = "wind speed:  " + data.list[i].wind.speed + "  MPH"
-                humd1.textContent = "humidity:  " + data.list[i].main.humidity
-                console.log(data.list)
+                
             }
 
         })
@@ -85,23 +92,11 @@ document.querySelector(".city").addEventListener("click", function () {
     const cityValue = document.getElementById("input").value
     geo(cityValue)
     const cityArray = JSON.parse(localStorage.getItem("lsCityArray")) || [];
-   if(cityArray.length > 10){
-    cityArray.length = 10}
-    
+    if (cityArray.length > 10) {
+        cityArray.length = 10
+    }
+
     cityArray.push(cityValue)
     localStorage.setItem("lsCityArray", JSON.stringify(cityArray))
 })
 
-// const weatherObj = {
-//     date: " ",
-//     temp: " ",
-//     wind: " ",
-//     himidity: " ",
-//     icon: " ",
-// }
-// // weatherObj.temp = data.main.temp
-
-// function ktoc(){
-//     let k = data.main.temp
-//     const fa = (k - 273) * (9 / 5) -32
-// }
