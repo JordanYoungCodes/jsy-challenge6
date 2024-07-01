@@ -17,6 +17,7 @@
 .flex {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     width:100%;
     padding-top: 25px;
     justify-content:space-evenly ;
@@ -28,6 +29,7 @@
     background-image: linear-gradient(225deg,white, cyan, blue);
     font-size: 15px;
     font-weight: 600;
+    min-width: 200px;
     
     
 
