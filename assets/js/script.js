@@ -2,9 +2,9 @@
 
 
 
-const apikey = "8f0fa8364b82a56ff6b29b97a2963b6e"
+const apikey = "d3ea21122600c5ec891d278316d323ee"
 function geo(city) {
-    fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=3&appid=${apikey}`)
+    fetch(`https://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=3&appid=${apikey}`)
         .then(response => response.json())
         .then(potato => {
             console.log(potato)
