@@ -1,74 +1,157 @@
-.navbar1 {
-    text-align: center;
-    color: rgb(238, 241, 7);
-    margin-left:0;
-    background-color: blue;
-    height:4em;
-    background-image: linear-gradient(to right, rgb(255, 94, 0) , rgb(193, 189, 248), rgb(0, 255, 255));
+:root {
+  --header-bac-color: linear-gradient(to right, #00bcd4, #002f55, #008a9c);
+  --header-text-color: rgb(255, 255, 185);
+  --header-text-shadow: 3px 3px 12px rgb(248, 248, 150);
+  --button-bac-color: rgb(0, 0, 190);
+  --button-text-color: rgb(248, 247, 206);
+  --button-shadow-color: 3px 3px 12px rgb(248, 248, 150);
+  --image-color: linear-gradient(
+    to right,
+    rgb(169, 224, 255),
+    rgb(1, 175, 255),
+    rgb(0, 0, 241)
+  );
+  --root-bac-color: rgb(3, 0, 17);
+  --root-text-color: rgb(250, 248, 235);
+  --root-text-shadow: 3px 3px 12px rgb(250, 250, 208);
+  --footer-bac-color: linear-gradient(to right, #011933, #01569c, #fffc5d);
 }
- 
-.button-text {
-    color: rgb(36, 1, 1);
-    font-size: 24px;
-    font-weight: 500;
 
+.navbar1 {
+  text-align: center;
+  align-content: center;
+  color: rgb(238, 241, 7);
+  text-shadow: var(--header-text-shadow);
+  margin-left: 0px;
+  margin-bottom: 20px;
+  background-color: blue;
+  height: 5em;
+  background-image: var(--header-bac-color);
+  border-bottom: 2px solid black;
+}
+
+.button-text {
+  color: rgb(36, 1, 1);
+  font-size: 24px;
+  font-weight: 500;
 }
 
 .flex {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    width:100%;
-    padding-top: 25px;
-    justify-content:space-evenly ;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+  padding-top: 25px;
+  justify-content: space-evenly;
 }
 .card {
-    width:19%;
-    border: black 2px solid;
-    height:25em;
-    background-image: linear-gradient(225deg,white, cyan, blue);
-    font-size: 15px;
-    font-weight: 600;
-    min-width: 200px;
-    
-    
-
+  width: 19%;
+  border: black 2px solid;
+  height: 25em;
+  background-image: linear-gradient(225deg, white, cyan, blue);
+  font-size: 15px;
+  font-weight: 600;
+  min-width: 200px;
+  padding: 10px;
+  margin: 10px 5px;
+  box-shadow: 3px 3px 12px grey;
 }
 #input {
-    margin-left: 20px;
+  margin-left: 20px;
 }
 .containerSubmit {
-    margin-left: 20px;
-    display:flex;
-    justify-content: space-between
+  margin-left: 20px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .containerItem2 {
-    width:60%;
-    border: 2px black solid;
-    margin-right: 20px;
-    margin-top: 10px;
-    background-image: linear-gradient(to right, rgb(248, 248, 164), rgb(108, 247, 247), rgb(1, 1, 63));
-    font-size:  22px;
-    font-weight: 800;
-    text-align: center;
-    padding-top: 10px;
-    border-radius: 12px;
+  width: 60%;
+  border: 2px black solid;
+  box-shadow: 3px 3px 12px grey;
+  margin-right: 20px;
+  margin-top: 10px;
+  background-image: var(--image-color);
+  font-size: 22px;
+  font-weight: 800;
+  text-align: center;
+  padding-top: 10px;
+  border-radius: 12px;
 }
 
 #citylabel {
-    text-align: center;
-    margin-top: 15px;
-    
+  text-align: center;
+  margin-top: 15px;
 }
 #input {
-    border:rgb(104, 103, 103) 3px solid;
-    width:80%
+  border: rgb(104, 103, 103) 3px solid;
+  width: 80%;
+  padding-left: 5px;
+  box-shadow: 3px 3px 12px grey;
 }
 
 .card li {
-    list-style-type: none;
-    font-size: 18px;
-    margin: 6px
+  list-style-type: none;
+  font-size: 18px;
+  margin: 6px 0px;
+}
+#port {
+  padding-left: 20px;
+}
 
+footer {
+  margin-top: 30px;
+
+  width: 100%;
+  height: 15%;
+  background: var(--footer-bac-color);
+  align-content: center;
+  padding: 30px 30px;
+}
+
+.button {
+  border: 2px solid black;
+  border-radius: 12px;
+  padding: 4px 8px;
+  cursor: pointer;
+  box-shadow: 3px 3px 12px grey;
+}
+
+body {
+  margin-left: 0px;
+}
+
+footer p {
+  color: var(--root-text-color);
+}
+.submitValue {
+  margin-bottom: 10px;
+}
+
+ul {
+  padding-left: 0px;
+}
+
+#cityList {
+  border: 3px solid rgb(37, 37, 37);
+  box-shadow: 3px 3px 12px rgb(29, 29, 29);
+  border-radius: 4px;
+  position: absolute;
+  background-color: white;
+  list-style-type: none;
+  padding: 5px;
+  margin-left: 20px;
+  top: 220px;
+  
+  z-index: 1000;
+  width: 40%; /* Match the input width */
+}
+
+#cityList li {
+  padding: 5px;
+  cursor: pointer;
+}
+
+#cityList li:hover {
+  background-color: #f0f0f0;
 }
